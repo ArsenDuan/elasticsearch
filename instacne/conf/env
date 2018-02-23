@@ -1,0 +1,8 @@
+CLUSTER=example
+#UNICAST_HOSTS=HOST:PORT[,HOST:PORT]
+PLUGINS=analysis-kuromoji,analysis-icu,delete-by-query
+#PUBLISH_AS=
+NODE_NAME=ex1
+#NODE_TYPE=MASTER
+#MIN_MASTERS=1
+
