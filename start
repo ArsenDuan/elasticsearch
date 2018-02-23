@@ -88,28 +88,40 @@ setup_personality() {
   if [ -n "$TYPE" ]; then
     case $TYPE in
       MASTER)
-        OPTS="$OPTS -Dnode.master=true -Dnode.data=false -Dnode.ingest=false"
-        ;;
-
-      GATEWAY|COORDINATING)
-        OPTS="$OPTS -Dnode.master=false -Dnode.data=false -Dnode.ingest=false"
-        ;;
-
-      INGEST)
-        OPTS="$OPTS -Dnode.master=false -Dnode.data=false -Dnode.ingest=true"
+        OPTS="$OPTS -Dnode.master=true -Dnode.data=false"
         ;;
 
       DATA)
-        OPTS="$OPTS -Dnode.master=false -Dnode.data=true -Dnode.ingest=false"
+        OPTS="$OPTS -Dnode.master=false -Dnode.data=true"
         ;;
 
-      NON_MASTER)
-        OPTS="$OPTS -Dnode.master=false -Dnode.data=true -Dnode.ingest=true"
+      CLIENT)
+        OPTS="$OPTS -Dnode.master=false -Dnode.data=false"
         ;;
 
-      NON_DATA)
-        OPTS="$OPTS -Dnode.master=true -Dnode.data=false -Dnode.ingest=true"
-        ;;
+#     MASTER)
+#       OPTS="$OPTS -Dnode.master=true -Dnode.data=false -Dnode.ingest=false"
+#       ;;
+
+#     GATEWAY|COORDINATING)
+#       OPTS="$OPTS -Dnode.master=false -Dnode.data=false -Dnode.ingest=false"
+#       ;;
+
+#     INGEST)
+#       OPTS="$OPTS -Dnode.master=false -Dnode.data=false -Dnode.ingest=true"
+#       ;;
+
+#     DATA)
+#       OPTS="$OPTS -Dnode.master=false -Dnode.data=true -Dnode.ingest=false"
+#       ;;
+
+#     NON_MASTER)
+#       OPTS="$OPTS -Dnode.master=false -Dnode.data=true -Dnode.ingest=true"
+#       ;;
+
+#     NON_DATA)
+#       OPTS="$OPTS -Dnode.master=true -Dnode.data=false -Dnode.ingest=true"
+#       ;;
 
       *)
         echo "Unknown node type. Please use MASTER|GATEWAY|DATA|NON_MASTER"
